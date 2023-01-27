@@ -2968,17 +2968,17 @@
                           <block type="CreateVector">
                             <value name="VALUE-0">
                               <block type="Number">
-                                <field name="NUM">171.23439</field>
+                                <field name="NUM">-8.8919</field>
                               </block>
                             </value>
                             <value name="VALUE-1">
                               <block type="Number">
-                                <field name="NUM">109.30287</field>
+                                <field name="NUM">109.30263</field>
                               </block>
                             </value>
                             <value name="VALUE-2">
                               <block type="Number">
-                                <field name="NUM">-114.38954</field>
+                                <field name="NUM">-89.66</field>
                               </block>
                             </value>
                           </block>
@@ -3041,17 +3041,17 @@
                               <block type="CreateVector">
                                 <value name="VALUE-0">
                                   <block type="Number">
-                                    <field name="NUM">171.3933</field>
+                                    <field name="NUM">-8.819616</field>
                                   </block>
                                 </value>
                                 <value name="VALUE-1">
                                   <block type="Number">
-                                    <field name="NUM">109.30287</field>
+                                    <field name="NUM">109.30261</field>
                                   </block>
                                 </value>
                                 <value name="VALUE-2">
                                   <block type="Number">
-                                    <field name="NUM">-109.800189</field>
+                                    <field name="NUM">-88.01435</field>
                                   </block>
                                 </value>
                               </block>
@@ -3114,17 +3114,17 @@
                                   <block type="CreateVector">
                                     <value name="VALUE-0">
                                       <block type="Number">
-                                        <field name="NUM">171.48419</field>
+                                        <field name="NUM">-8687693</field>
                                       </block>
                                     </value>
                                     <value name="VALUE-1">
                                       <block type="Number">
-                                        <field name="NUM">109.30287</field>
+                                        <field name="NUM">109.3026</field>
                                       </block>
                                     </value>
                                     <value name="VALUE-2">
                                       <block type="Number">
-                                        <field name="NUM">-102.76226</field>
+                                        <field name="NUM">-85.767337</field>
                                       </block>
                                     </value>
                                   </block>
@@ -3187,17 +3187,17 @@
                                       <block type="CreateVector">
                                         <value name="VALUE-0">
                                           <block type="Number">
-                                            <field name="NUM">173.52342</field>
+                                            <field name="NUM">-8.474031</field>
                                           </block>
                                         </value>
                                         <value name="VALUE-1">
                                           <block type="Number">
-                                            <field name="NUM">109.30265</field>
+                                            <field name="NUM">109.30259</field>
                                           </block>
                                         </value>
                                         <value name="VALUE-2">
                                           <block type="Number">
-                                            <field name="NUM">-98.1079</field>
+                                            <field name="NUM">-83.27355</field>
                                           </block>
                                         </value>
                                       </block>
@@ -3260,17 +3260,17 @@
                                           <block type="CreateVector">
                                             <value name="VALUE-0">
                                               <block type="Number">
-                                                <field name="NUM">173.8796</field>
+                                                <field name="NUM">-8.378377</field>
                                               </block>
                                             </value>
                                             <value name="VALUE-1">
                                               <block type="Number">
-                                                <field name="NUM">109.30289</field>
+                                                <field name="NUM">109.30258</field>
                                               </block>
                                             </value>
                                             <value name="VALUE-2">
                                               <block type="Number">
-                                                <field name="NUM">-93.73571</field>
+                                                <field name="NUM">-81.8415</field>
                                               </block>
                                             </value>
                                           </block>
