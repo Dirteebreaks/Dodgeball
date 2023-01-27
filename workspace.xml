@@ -16342,18 +16342,35 @@
                                 <field name="NAME">6</field>
                                 <field name="EVENTTYPE">OnPlayerDeployed</field>
                                 <statement name="ACTIONS">
-                                  <block type="SpotTarget" deletable="false" movable="false" editable="false">
+                                  <block type="If" deletable="false" movable="false" editable="false">
+                                    <mutation else="1"></mutation>
                                     <value name="VALUE-0">
-                                      <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                    </value>
-                                    <value name="VALUE-1">
-                                      <block type="Number" deletable="false" movable="false" editable="false">
-                                        <field name="NUM">1000</field>
+                                      <block type="ArrayContains" deletable="false" movable="false" editable="false">
+                                        <value name="VALUE-0">
+                                          <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                            <value name="VALUE-0">
+                                              <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                <mutation isObjectVar="true"></mutation>
+                                                <field name="OBJECTTYPE">TeamId</field>
+                                                <field name="VAR" id="C3OO^$[w!m^8kCN)1yth" variabletype="TeamId">Queue</field>
+                                                <value name="OBJECT">
+                                                  <block type="GetTeamId" deletable="false" movable="false" editable="false">
+                                                    <value name="VALUE-0">
+                                                      <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="VALUE-1">
+                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                        </value>
                                       </block>
                                     </value>
-                                    <next>
-                                      <block type="If" deletable="false" movable="false" editable="false">
-                                        <mutation else="1"></mutation>
+                                    <statement name="DO">
+                                      <block type="While" deletable="false" movable="false" editable="false">
                                         <value name="VALUE-0">
                                           <block type="ArrayContains" deletable="false" movable="false" editable="false">
                                             <value name="VALUE-0">
@@ -16380,53 +16397,11 @@
                                           </block>
                                         </value>
                                         <statement name="DO">
-                                          <block type="While" deletable="false" movable="false" editable="false">
+                                          <block type="If" deletable="false" movable="false" editable="false">
                                             <value name="VALUE-0">
-                                              <block type="ArrayContains" deletable="false" movable="false" editable="false">
+                                              <block type="Not" deletable="false" movable="false" editable="false">
                                                 <value name="VALUE-0">
-                                                  <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                    <value name="VALUE-0">
-                                                      <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                        <mutation isObjectVar="true"></mutation>
-                                                        <field name="OBJECTTYPE">TeamId</field>
-                                                        <field name="VAR" id="C3OO^$[w!m^8kCN)1yth" variabletype="TeamId">Queue</field>
-                                                        <value name="OBJECT">
-                                                          <block type="GetTeamId" deletable="false" movable="false" editable="false">
-                                                            <value name="VALUE-0">
-                                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                            </value>
-                                                          </block>
-                                                        </value>
-                                                      </block>
-                                                    </value>
-                                                  </block>
-                                                </value>
-                                                <value name="VALUE-1">
-                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                </value>
-                                              </block>
-                                            </value>
-                                            <statement name="DO">
-                                              <block type="If" deletable="false" movable="false" editable="false">
-                                                <value name="VALUE-0">
-                                                  <block type="Not" deletable="false" movable="false" editable="false">
-                                                    <value name="VALUE-0">
-                                                      <block type="HasInventory" deletable="false" movable="false" editable="false">
-                                                        <value name="VALUE-0">
-                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                        </value>
-                                                        <value name="VALUE-1">
-                                                          <block type="CharacterGadgetsItem" deletable="false" movable="false" editable="false">
-                                                            <field name="VALUE-0">CharacterGadgetsKingston</field>
-                                                            <field name="VALUE-1">ReconDrone</field>
-                                                          </block>
-                                                        </value>
-                                                      </block>
-                                                    </value>
-                                                  </block>
-                                                </value>
-                                                <statement name="DO">
-                                                  <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                                  <block type="HasInventory" deletable="false" movable="false" editable="false">
                                                     <value name="VALUE-0">
                                                       <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                     </value>
@@ -16437,21 +16412,56 @@
                                                       </block>
                                                     </value>
                                                   </block>
-                                                </statement>
-                                                <next>
-                                                  <block type="Teleport" deletable="false" movable="false" editable="false">
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                                <value name="VALUE-0">
+                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                </value>
+                                                <value name="VALUE-1">
+                                                  <block type="CharacterGadgetsItem" deletable="false" movable="false" editable="false">
+                                                    <field name="VALUE-0">CharacterGadgetsKingston</field>
+                                                    <field name="VALUE-1">ReconDrone</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="Teleport" deletable="false" movable="false" editable="false">
+                                                <value name="VALUE-0">
+                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                </value>
+                                                <value name="VALUE-1">
+                                                  <block type="ValueInArray" deletable="false" movable="false" editable="false">
                                                     <value name="VALUE-0">
-                                                      <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                      <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                        <value name="VALUE-0">
+                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                            <mutation isObjectVar="true"></mutation>
+                                                            <field name="OBJECTTYPE">TeamId</field>
+                                                            <field name="VAR" id="~|5%s4A*Twm|`}tqPwx," variabletype="TeamId">Spawns</field>
+                                                            <value name="OBJECT">
+                                                              <block type="GetTeamId" deletable="false" movable="false" editable="false">
+                                                                <value name="VALUE-0">
+                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
                                                     </value>
                                                     <value name="VALUE-1">
-                                                      <block type="ValueInArray" deletable="false" movable="false" editable="false">
+                                                      <block type="IndexOfArrayValue" deletable="false" movable="false" editable="false">
                                                         <value name="VALUE-0">
                                                           <block type="GetVariable" deletable="false" movable="false" editable="false">
                                                             <value name="VALUE-0">
                                                               <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
                                                                 <mutation isObjectVar="true"></mutation>
                                                                 <field name="OBJECTTYPE">TeamId</field>
-                                                                <field name="VAR" id="~|5%s4A*Twm|`}tqPwx," variabletype="TeamId">Spawns</field>
+                                                                <field name="VAR" id="295)Dq}Tu[)u-pUtkBJ1" variabletype="TeamId">Players</field>
                                                                 <value name="OBJECT">
                                                                   <block type="GetTeamId" deletable="false" movable="false" editable="false">
                                                                     <value name="VALUE-0">
@@ -16464,91 +16474,91 @@
                                                           </block>
                                                         </value>
                                                         <value name="VALUE-1">
-                                                          <block type="IndexOfArrayValue" deletable="false" movable="false" editable="false">
+                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="VALUE-2">
+                                                  <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                    <value name="VALUE-0">
+                                                      <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                        <mutation isObjectVar="true"></mutation>
+                                                        <field name="OBJECTTYPE">TeamId</field>
+                                                        <field name="VAR" id="^5xm|!jE%e|46]M,8sI+" variabletype="TeamId">yaw</field>
+                                                        <value name="OBJECT">
+                                                          <block type="GetTeamId" deletable="false" movable="false" editable="false">
                                                             <value name="VALUE-0">
-                                                              <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                                <value name="VALUE-0">
-                                                                  <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                                    <mutation isObjectVar="true"></mutation>
-                                                                    <field name="OBJECTTYPE">TeamId</field>
-                                                                    <field name="VAR" id="295)Dq}Tu[)u-pUtkBJ1" variabletype="TeamId">Players</field>
-                                                                    <value name="OBJECT">
-                                                                      <block type="GetTeamId" deletable="false" movable="false" editable="false">
-                                                                        <value name="VALUE-0">
-                                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                        </value>
-                                                                      </block>
-                                                                    </value>
-                                                                  </block>
-                                                                </value>
-                                                              </block>
-                                                            </value>
-                                                            <value name="VALUE-1">
                                                               <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                             </value>
                                                           </block>
                                                         </value>
                                                       </block>
                                                     </value>
-                                                    <value name="VALUE-2">
-                                                      <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                        <value name="VALUE-0">
-                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                            <mutation isObjectVar="true"></mutation>
-                                                            <field name="OBJECTTYPE">TeamId</field>
-                                                            <field name="VAR" id="^5xm|!jE%e|46]M,8sI+" variabletype="TeamId">yaw</field>
-                                                            <value name="OBJECT">
-                                                              <block type="GetTeamId" deletable="false" movable="false" editable="false">
-                                                                <value name="VALUE-0">
-                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                </value>
-                                                              </block>
-                                                            </value>
-                                                          </block>
-                                                        </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="SetHeal" deletable="false" movable="false" editable="false">
+                                                    <value name="VALUE-0">
+                                                      <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                    </value>
+                                                    <value name="VALUE-1">
+                                                      <block type="Number" deletable="false" movable="false" editable="false">
+                                                        <field name="NUM">100</field>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="SetHeal" deletable="false" movable="false" editable="false">
+                                                      <block type="Wait" deletable="false" movable="false" editable="false">
                                                         <value name="VALUE-0">
-                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                        </value>
-                                                        <value name="VALUE-1">
                                                           <block type="Number" deletable="false" movable="false" editable="false">
-                                                            <field name="NUM">100</field>
+                                                            <field name="NUM">0.1</field>
                                                           </block>
                                                         </value>
-                                                        <next>
-                                                          <block type="Wait" deletable="false" movable="false" editable="false">
-                                                            <value name="VALUE-0">
-                                                              <block type="Number" deletable="false" movable="false" editable="false">
-                                                                <field name="NUM">0.1</field>
-                                                              </block>
-                                                            </value>
-                                                          </block>
-                                                        </next>
                                                       </block>
                                                     </next>
                                                   </block>
                                                 </next>
                                               </block>
-                                            </statement>
+                                            </next>
                                           </block>
                                         </statement>
-                                        <statement name="ELSE">
-                                          <block type="Teleport" deletable="false" movable="false" editable="false">
+                                      </block>
+                                    </statement>
+                                    <statement name="ELSE">
+                                      <block type="Teleport" deletable="false" movable="false" editable="false">
+                                        <value name="VALUE-0">
+                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                        </value>
+                                        <value name="VALUE-1">
+                                          <block type="ValueInArray" deletable="false" movable="false" editable="false">
                                             <value name="VALUE-0">
-                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                              <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                <value name="VALUE-0">
+                                                  <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                    <mutation isObjectVar="true"></mutation>
+                                                    <field name="OBJECTTYPE">TeamId</field>
+                                                    <field name="VAR" id="~|5%s4A*Twm|`}tqPwx," variabletype="TeamId">Spawns</field>
+                                                    <value name="OBJECT">
+                                                      <block type="GetTeamId" deletable="false" movable="false" editable="false">
+                                                        <value name="VALUE-0">
+                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
                                             </value>
                                             <value name="VALUE-1">
-                                              <block type="ValueInArray" deletable="false" movable="false" editable="false">
+                                              <block type="IndexOfArrayValue" deletable="false" movable="false" editable="false">
                                                 <value name="VALUE-0">
                                                   <block type="GetVariable" deletable="false" movable="false" editable="false">
                                                     <value name="VALUE-0">
                                                       <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
                                                         <mutation isObjectVar="true"></mutation>
                                                         <field name="OBJECTTYPE">TeamId</field>
-                                                        <field name="VAR" id="~|5%s4A*Twm|`}tqPwx," variabletype="TeamId">Spawns</field>
+                                                        <field name="VAR" id="295)Dq}Tu[)u-pUtkBJ1" variabletype="TeamId">Players</field>
                                                         <value name="OBJECT">
                                                           <block type="GetTeamId" deletable="false" movable="false" editable="false">
                                                             <value name="VALUE-0">
@@ -16561,126 +16571,139 @@
                                                   </block>
                                                 </value>
                                                 <value name="VALUE-1">
-                                                  <block type="IndexOfArrayValue" deletable="false" movable="false" editable="false">
+                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="VALUE-2">
+                                          <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                            <value name="VALUE-0">
+                                              <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                <mutation isObjectVar="true"></mutation>
+                                                <field name="OBJECTTYPE">TeamId</field>
+                                                <field name="VAR" id="^5xm|!jE%e|46]M,8sI+" variabletype="TeamId">yaw</field>
+                                                <value name="OBJECT">
+                                                  <block type="GetTeamId" deletable="false" movable="false" editable="false">
                                                     <value name="VALUE-0">
-                                                      <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                        <value name="VALUE-0">
-                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                            <mutation isObjectVar="true"></mutation>
-                                                            <field name="OBJECTTYPE">TeamId</field>
-                                                            <field name="VAR" id="295)Dq}Tu[)u-pUtkBJ1" variabletype="TeamId">Players</field>
-                                                            <value name="OBJECT">
-                                                              <block type="GetTeamId" deletable="false" movable="false" editable="false">
-                                                                <value name="VALUE-0">
-                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                </value>
-                                                              </block>
-                                                            </value>
-                                                          </block>
-                                                        </value>
-                                                      </block>
-                                                    </value>
-                                                    <value name="VALUE-1">
                                                       <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                     </value>
                                                   </block>
                                                 </value>
                                               </block>
                                             </value>
-                                            <value name="VALUE-2">
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                            <value name="VALUE-0">
+                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                            </value>
+                                            <value name="VALUE-1">
                                               <block type="GetVariable" deletable="false" movable="false" editable="false">
                                                 <value name="VALUE-0">
                                                   <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                    <mutation isObjectVar="true"></mutation>
-                                                    <field name="OBJECTTYPE">TeamId</field>
-                                                    <field name="VAR" id="^5xm|!jE%e|46]M,8sI+" variabletype="TeamId">yaw</field>
-                                                    <value name="OBJECT">
-                                                      <block type="GetTeamId" deletable="false" movable="false" editable="false">
-                                                        <value name="VALUE-0">
-                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                        </value>
-                                                      </block>
-                                                    </value>
+                                                    <mutation isObjectVar="false"></mutation>
+                                                    <field name="OBJECTTYPE">Global</field>
+                                                    <field name="VAR" id="{+C/XX`Ogj%:!-AalDOQ" variabletype="Global">SecondaryWeapons</field>
                                                   </block>
                                                 </value>
                                               </block>
                                             </value>
                                             <next>
-                                              <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                              <block type="ForceSwitchInventory" deletable="false" movable="false" editable="false">
                                                 <value name="VALUE-0">
                                                   <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                 </value>
                                                 <value name="VALUE-1">
-                                                  <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                    <value name="VALUE-0">
-                                                      <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                        <mutation isObjectVar="false"></mutation>
-                                                        <field name="OBJECTTYPE">Global</field>
-                                                        <field name="VAR" id="{+C/XX`Ogj%:!-AalDOQ" variabletype="Global">SecondaryWeapons</field>
-                                                      </block>
-                                                    </value>
+                                                  <block type="InventorySlotsItem" deletable="false" movable="false" editable="false">
+                                                    <field name="VALUE-0">InventorySlots</field>
+                                                    <field name="VALUE-1">SecondaryWeapon</field>
                                                   </block>
                                                 </value>
                                                 <next>
-                                                  <block type="ForceSwitchInventory" deletable="false" movable="false" editable="false">
+                                                  <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
                                                     <value name="VALUE-0">
                                                       <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                     </value>
                                                     <value name="VALUE-1">
-                                                      <block type="InventorySlotsItem" deletable="false" movable="false" editable="false">
-                                                        <field name="VALUE-0">InventorySlots</field>
-                                                        <field name="VALUE-1">SecondaryWeapon</field>
+                                                      <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                        <value name="VALUE-0">
+                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                            <mutation isObjectVar="false"></mutation>
+                                                            <field name="OBJECTTYPE">Global</field>
+                                                            <field name="VAR" id="?jHNvuc2fTlzk{]}iw`t" variabletype="Global">Throwables</field>
+                                                          </block>
+                                                        </value>
                                                       </block>
                                                     </value>
                                                     <next>
-                                                      <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                                      <block type="If" deletable="false" movable="false" editable="false">
                                                         <value name="VALUE-0">
-                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                        </value>
-                                                        <value name="VALUE-1">
-                                                          <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                          <block type="Or" deletable="false" movable="false" editable="false">
                                                             <value name="VALUE-0">
-                                                              <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                                <mutation isObjectVar="false"></mutation>
-                                                                <field name="OBJECTTYPE">Global</field>
-                                                                <field name="VAR" id="?jHNvuc2fTlzk{]}iw`t" variabletype="Global">Throwables</field>
+                                                              <block type="IsCurrentMap" deletable="false" movable="false" editable="false">
+                                                                <value name="VALUE-0">
+                                                                  <block type="MapsItem" deletable="false" movable="false" editable="false">
+                                                                    <field name="VALUE-0">Maps</field>
+                                                                    <field name="VALUE-1">Harbor</field>
+                                                                  </block>
+                                                                </value>
                                                               </block>
                                                             </value>
-                                                          </block>
-                                                        </value>
-                                                        <next>
-                                                          <block type="If" deletable="false" movable="false" editable="false">
-                                                            <value name="VALUE-0">
+                                                            <value name="VALUE-1">
                                                               <block type="Or" deletable="false" movable="false" editable="false">
                                                                 <value name="VALUE-0">
                                                                   <block type="IsCurrentMap" deletable="false" movable="false" editable="false">
                                                                     <value name="VALUE-0">
                                                                       <block type="MapsItem" deletable="false" movable="false" editable="false">
                                                                         <field name="VALUE-0">Maps</field>
-                                                                        <field name="VALUE-1">Harbor</field>
+                                                                        <field name="VALUE-1">Port</field>
                                                                       </block>
                                                                     </value>
                                                                   </block>
                                                                 </value>
                                                                 <value name="VALUE-1">
-                                                                  <block type="Or" deletable="false" movable="false" editable="false">
+                                                                  <block type="IsCurrentMap" deletable="false" movable="false" editable="false">
                                                                     <value name="VALUE-0">
-                                                                      <block type="IsCurrentMap" deletable="false" movable="false" editable="false">
-                                                                        <value name="VALUE-0">
-                                                                          <block type="MapsItem" deletable="false" movable="false" editable="false">
-                                                                            <field name="VALUE-0">Maps</field>
-                                                                            <field name="VALUE-1">Port</field>
-                                                                          </block>
-                                                                        </value>
+                                                                      <block type="MapsItem" deletable="false" movable="false" editable="false">
+                                                                        <field name="VALUE-0">Maps</field>
+                                                                        <field name="VALUE-1">Kaleidoscope</field>
                                                                       </block>
                                                                     </value>
-                                                                    <value name="VALUE-1">
-                                                                      <block type="IsCurrentMap" deletable="false" movable="false" editable="false">
-                                                                        <value name="VALUE-0">
-                                                                          <block type="MapsItem" deletable="false" movable="false" editable="false">
-                                                                            <field name="VALUE-0">Maps</field>
-                                                                            <field name="VALUE-1">Kaleidoscope</field>
-                                                                          </block>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO">
+                                                          <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                                            <value name="VALUE-0">
+                                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                            </value>
+                                                            <value name="VALUE-1">
+                                                              <block type="CharacterGadgetsItem" deletable="false" movable="false" editable="false">
+                                                                <field name="VALUE-0">CharacterGadgetsKingston</field>
+                                                                <field name="VALUE-1">GrappleGun</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="If" deletable="false" movable="false" editable="false">
+                                                            <value name="VALUE-0">
+                                                              <block type="Not" deletable="false" movable="false" editable="false">
+                                                                <value name="VALUE-0">
+                                                                  <block type="GetVariable" deletable="false" movable="false" editable="false">
+                                                                    <value name="VALUE-0">
+                                                                      <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                                        <mutation isObjectVar="true"></mutation>
+                                                                        <field name="OBJECTTYPE">Player</field>
+                                                                        <field name="VAR" id="H!_5]:$X*^lR1ilTwMly" variabletype="Player">WelcomeMessage</field>
+                                                                        <value name="OBJECT">
+                                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                                         </value>
                                                                       </block>
                                                                     </value>
@@ -16689,45 +16712,37 @@
                                                               </block>
                                                             </value>
                                                             <statement name="DO">
-                                                              <block type="AddSoldierWeapon" deletable="false" movable="false" editable="false">
+                                                              <block type="DisplayCustomNotificationMessage" deletable="false" movable="false" editable="false">
                                                                 <value name="VALUE-0">
-                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                </value>
-                                                                <value name="VALUE-1">
-                                                                  <block type="CharacterGadgetsItem" deletable="false" movable="false" editable="false">
-                                                                    <field name="VALUE-0">CharacterGadgetsKingston</field>
-                                                                    <field name="VALUE-1">GrappleGun</field>
-                                                                  </block>
-                                                                </value>
-                                                              </block>
-                                                            </statement>
-                                                            <next>
-                                                              <block type="If" deletable="false" movable="false" editable="false">
-                                                                <value name="VALUE-0">
-                                                                  <block type="Not" deletable="false" movable="false" editable="false">
+                                                                  <block type="Message" deletable="false" movable="false" editable="false">
                                                                     <value name="VALUE-0">
-                                                                      <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                                        <value name="VALUE-0">
-                                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                                            <mutation isObjectVar="true"></mutation>
-                                                                            <field name="OBJECTTYPE">Player</field>
-                                                                            <field name="VAR" id="H!_5]:$X*^lR1ilTwMly" variabletype="Player">WelcomeMessage</field>
-                                                                            <value name="OBJECT">
-                                                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                            </value>
-                                                                          </block>
-                                                                        </value>
+                                                                      <block type="Text" deletable="false" movable="false" editable="false">
+                                                                        <field name="TEXT">Welcome to DODGEBALL</field>
                                                                       </block>
                                                                     </value>
                                                                   </block>
                                                                 </value>
-                                                                <statement name="DO">
+                                                                <value name="VALUE-1">
+                                                                  <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
+                                                                    <field name="VALUE-0">CustomMessages</field>
+                                                                    <field name="VALUE-1">HeaderText</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="VALUE-2">
+                                                                  <block type="Number" deletable="false" movable="false" editable="false">
+                                                                    <field name="NUM">30</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="VALUE-3">
+                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                                </value>
+                                                                <next>
                                                                   <block type="DisplayCustomNotificationMessage" deletable="false" movable="false" editable="false">
                                                                     <value name="VALUE-0">
                                                                       <block type="Message" deletable="false" movable="false" editable="false">
                                                                         <value name="VALUE-0">
                                                                           <block type="Text" deletable="false" movable="false" editable="false">
-                                                                            <field name="TEXT">Welcome to DODGEBALL</field>
+                                                                            <field name="TEXT">first team to kill all the other team wins</field>
                                                                           </block>
                                                                         </value>
                                                                       </block>
@@ -16735,7 +16750,7 @@
                                                                     <value name="VALUE-1">
                                                                       <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
                                                                         <field name="VALUE-0">CustomMessages</field>
-                                                                        <field name="VALUE-1">HeaderText</field>
+                                                                        <field name="VALUE-1">MessageText1</field>
                                                                       </block>
                                                                     </value>
                                                                     <value name="VALUE-2">
@@ -16752,7 +16767,7 @@
                                                                           <block type="Message" deletable="false" movable="false" editable="false">
                                                                             <value name="VALUE-0">
                                                                               <block type="Text" deletable="false" movable="false" editable="false">
-                                                                                <field name="TEXT">first team to kill all the other team wins</field>
+                                                                                <field name="TEXT">Revive team mates by getting a kill</field>
                                                                               </block>
                                                                             </value>
                                                                           </block>
@@ -16760,7 +16775,7 @@
                                                                         <value name="VALUE-1">
                                                                           <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
                                                                             <field name="VALUE-0">CustomMessages</field>
-                                                                            <field name="VALUE-1">MessageText1</field>
+                                                                            <field name="VALUE-1">MessageText2</field>
                                                                           </block>
                                                                         </value>
                                                                         <value name="VALUE-2">
@@ -16777,7 +16792,7 @@
                                                                               <block type="Message" deletable="false" movable="false" editable="false">
                                                                                 <value name="VALUE-0">
                                                                                   <block type="Text" deletable="false" movable="false" editable="false">
-                                                                                    <field name="TEXT">Revive team mates by getting a kill</field>
+                                                                                    <field name="TEXT">Collect Weapons from the Pickup points</field>
                                                                                   </block>
                                                                                 </value>
                                                                               </block>
@@ -16785,7 +16800,7 @@
                                                                             <value name="VALUE-1">
                                                                               <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
                                                                                 <field name="VALUE-0">CustomMessages</field>
-                                                                                <field name="VALUE-1">MessageText2</field>
+                                                                                <field name="VALUE-1">MessageText3</field>
                                                                               </block>
                                                                             </value>
                                                                             <value name="VALUE-2">
@@ -16797,96 +16812,69 @@
                                                                               <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                                             </value>
                                                                             <next>
-                                                                              <block type="DisplayCustomNotificationMessage" deletable="false" movable="false" editable="false">
+                                                                              <block type="Wait" deletable="false" movable="false" editable="false">
                                                                                 <value name="VALUE-0">
-                                                                                  <block type="Message" deletable="false" movable="false" editable="false">
-                                                                                    <value name="VALUE-0">
-                                                                                      <block type="Text" deletable="false" movable="false" editable="false">
-                                                                                        <field name="TEXT">Collect Weapons from the Pickup points</field>
-                                                                                      </block>
-                                                                                    </value>
-                                                                                  </block>
-                                                                                </value>
-                                                                                <value name="VALUE-1">
-                                                                                  <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
-                                                                                    <field name="VALUE-0">CustomMessages</field>
-                                                                                    <field name="VALUE-1">MessageText3</field>
-                                                                                  </block>
-                                                                                </value>
-                                                                                <value name="VALUE-2">
                                                                                   <block type="Number" deletable="false" movable="false" editable="false">
-                                                                                    <field name="NUM">30</field>
+                                                                                    <field name="NUM">10</field>
                                                                                   </block>
-                                                                                </value>
-                                                                                <value name="VALUE-3">
-                                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
                                                                                 </value>
                                                                                 <next>
-                                                                                  <block type="Wait" deletable="false" movable="false" editable="false">
+                                                                                  <block type="DisplayCustomNotificationMessage" deletable="false" movable="false" editable="false">
                                                                                     <value name="VALUE-0">
-                                                                                      <block type="Number" deletable="false" movable="false" editable="false">
-                                                                                        <field name="NUM">10</field>
-                                                                                      </block>
-                                                                                    </value>
-                                                                                    <next>
-                                                                                      <block type="DisplayCustomNotificationMessage" deletable="false" movable="false" editable="false">
+                                                                                      <block type="Message" deletable="false" movable="false" editable="false">
                                                                                         <value name="VALUE-0">
-                                                                                          <block type="Message" deletable="false" movable="false" editable="false">
+                                                                                          <block type="Text" deletable="false" movable="false" editable="false">
+                                                                                            <field name="TEXT">Waiting for all players to spawn</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="VALUE-1">
+                                                                                          <block type="RoundToInteger" deletable="false" movable="false" editable="false">
                                                                                             <value name="VALUE-0">
-                                                                                              <block type="Text" deletable="false" movable="false" editable="false">
-                                                                                                <field name="TEXT">Waiting for all players to spawn</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="VALUE-1">
-                                                                                              <block type="RoundToInteger" deletable="false" movable="false" editable="false">
+                                                                                              <block type="GetVariable" deletable="false" movable="false" editable="false">
                                                                                                 <value name="VALUE-0">
-                                                                                                  <block type="GetVariable" deletable="false" movable="false" editable="false">
-                                                                                                    <value name="VALUE-0">
-                                                                                                      <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                                                                        <mutation isObjectVar="false"></mutation>
-                                                                                                        <field name="OBJECTTYPE">Global</field>
-                                                                                                        <field name="VAR" id="mL53{;}kF::Q6EbLIYRw" variabletype="Global">ResetRoundTimer</field>
-                                                                                                      </block>
-                                                                                                    </value>
+                                                                                                  <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                                                                    <mutation isObjectVar="false"></mutation>
+                                                                                                    <field name="OBJECTTYPE">Global</field>
+                                                                                                    <field name="VAR" id="mL53{;}kF::Q6EbLIYRw" variabletype="Global">ResetRoundTimer</field>
                                                                                                   </block>
                                                                                                 </value>
                                                                                               </block>
                                                                                             </value>
                                                                                           </block>
                                                                                         </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="VALUE-1">
+                                                                                      <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
+                                                                                        <field name="VALUE-0">CustomMessages</field>
+                                                                                        <field name="VALUE-1">HeaderText</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="VALUE-2">
+                                                                                      <block type="Number" deletable="false" movable="false" editable="false">
+                                                                                        <field name="NUM">-1</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="VALUE-3">
+                                                                                      <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="SetVariable" deletable="false" movable="false" editable="false">
+                                                                                        <value name="VALUE-0">
+                                                                                          <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
+                                                                                            <mutation isObjectVar="true"></mutation>
+                                                                                            <field name="OBJECTTYPE">Player</field>
+                                                                                            <field name="VAR" id="H!_5]:$X*^lR1ilTwMly" variabletype="Player">WelcomeMessage</field>
+                                                                                            <value name="OBJECT">
+                                                                                              <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
+                                                                                            </value>
+                                                                                          </block>
+                                                                                        </value>
                                                                                         <value name="VALUE-1">
-                                                                                          <block type="CustomMessagesItem" deletable="false" movable="false" editable="false">
-                                                                                            <field name="VALUE-0">CustomMessages</field>
-                                                                                            <field name="VALUE-1">HeaderText</field>
+                                                                                          <block type="Boolean" deletable="false" movable="false" editable="false">
+                                                                                            <field name="BOOL">TRUE</field>
                                                                                           </block>
                                                                                         </value>
-                                                                                        <value name="VALUE-2">
-                                                                                          <block type="Number" deletable="false" movable="false" editable="false">
-                                                                                            <field name="NUM">-1</field>
-                                                                                          </block>
-                                                                                        </value>
-                                                                                        <value name="VALUE-3">
-                                                                                          <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                                        </value>
-                                                                                        <next>
-                                                                                          <block type="SetVariable" deletable="false" movable="false" editable="false">
-                                                                                            <value name="VALUE-0">
-                                                                                              <block type="variableReferenceBlock" deletable="false" movable="false" editable="false">
-                                                                                                <mutation isObjectVar="true"></mutation>
-                                                                                                <field name="OBJECTTYPE">Player</field>
-                                                                                                <field name="VAR" id="H!_5]:$X*^lR1ilTwMly" variabletype="Player">WelcomeMessage</field>
-                                                                                                <value name="OBJECT">
-                                                                                                  <block type="EventPlayer" deletable="false" movable="false" editable="false"></block>
-                                                                                                </value>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                            <value name="VALUE-1">
-                                                                                              <block type="Boolean" deletable="false" movable="false" editable="false">
-                                                                                                <field name="BOOL">TRUE</field>
-                                                                                              </block>
-                                                                                            </value>
-                                                                                          </block>
-                                                                                        </next>
                                                                                       </block>
                                                                                     </next>
                                                                                   </block>
@@ -16898,9 +16886,9 @@
                                                                       </block>
                                                                     </next>
                                                                   </block>
-                                                                </statement>
+                                                                </next>
                                                               </block>
-                                                            </next>
+                                                            </statement>
                                                           </block>
                                                         </next>
                                                       </block>
@@ -16910,9 +16898,9 @@
                                               </block>
                                             </next>
                                           </block>
-                                        </statement>
+                                        </next>
                                       </block>
-                                    </next>
+                                    </statement>
                                   </block>
                                 </statement>
                                 <next>
